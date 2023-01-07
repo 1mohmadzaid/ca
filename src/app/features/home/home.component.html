@@ -283,15 +283,37 @@
 </div>
 <!-- End Services Section -->
 
-
 <div class="container">
   <div class="section-title d-flex justify-content-center" data-aos="fade-up">
     <h2>
       <strong
-        ><h3 class="border-bottom border-primary border-3 my-4">
-          Recent News
-        </h3></strong
-      >
+        ><h3 class="border-bottom border-primary border-3 my-4">Recent News</h3>
+      </strong>
     </h2>
   </div>
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Post preview-->
+      <div *ngFor="let news of newsList">
+        <div class="post-preview" data-aos="fade-up">
+          <a routerLink="/newsroom/singlenews/{{ news.id }}">
+            <h2 class="post-title">
+              {{ news.title }}
+            </h2>
+            <h4
+              [innerHtml]="news.description | shorten : 55"
+              class="post-subtitle"
+            ></h4>
+          </a>
+          <p class="post-meta user-select-none">
+            Posted by
+            <span class="text-primary">{{ news.author }}</span>
+            on {{ news.date?.toDate() | date : "dd/MM/yyyy" }}
+          </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" data-aos="fade-up" />
+      </div>
+    </div>
   </div>
+</div>

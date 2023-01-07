@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { SharedModule } from '../shared/shared.module';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FeaturesRoutingModule } from './features-routing.module';
@@ -29,6 +30,7 @@ import { ServicesComponent } from './services/services.component';
     ReactiveFormsModule,
     NzMessageModule,
     NzFormModule,
+    SharedModule
   ],
 })
 export class FeaturesModule {}

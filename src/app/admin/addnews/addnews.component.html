@@ -1,0 +1,45 @@
+
+<form nz-form [formGroup]="addNews" (ngSubmit)="onSubmitNewsForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired nzFor="author">Author Name</nz-form-label>
+    <nz-form-control [nzSm]="14" nzErrorTip="The input is not valid Author Name">
+      <input nz-input formControlName="author" id="author" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired nzFor="title">Title</nz-form-label>
+    <nz-form-control [nzSm]="14" nzErrorTip="The input valid title Name">
+      <input nz-input formControlName="title" id="title" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired >Category</nz-form-label>
+    <nz-form-control  [nzSm]="14" [nzXs]="24">
+      <nz-select  formControlName="category" nzPlaceHolder="Select a Category" >
+        <nz-option *ngFor="let c of categoryList" nzLabel="{{c.category}}" nzValue="{{c.category}}"></nz-option>
+      </nz-select>
+    </nz-form-control> 
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired nzFor="date">Date</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-date-picker formControlName="date" id="date"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired nzFor="description">Description</nz-form-label>
+    <nz-form-control  nzErrorTip="The input is not valid Author Name">
+      <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+  <ngx-editor
+    [editor]="editor"
+    [placeholder]="'Type here...'"
+    formControlName="description"
+  ></ngx-editor>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary" [disabled]="!addNews.valid">Submit</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

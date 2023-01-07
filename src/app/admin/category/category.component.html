@@ -1,0 +1,31 @@
+
+
+<div class="row">
+    <div class="col-6"><input nz-input placeholder="Category name" [(ngModel)]="category" />
+        <br />
+        <br />
+        <button nz-button nzType="primary" (click)="saveCategory()">Add Category</button>
+        </div>
+    <div class="col-6">
+
+        <nz-table #basicTable [nzData]="categoryList">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data">
+                    <td>{{data.category}}</td>
+                    <td nz-popconfirm
+                    nzPopconfirmTitle="Are you sure delete {{data.category}} news?"
+                    nzPopconfirmPlacement="bottom"
+                    (nzOnConfirm)="confirm(data)"
+                    (nzOnCancel)="cancel()"><i class="fa-solid fa-trash ms-3" style="color: red; font-size: 1.3rem;"></i></td>
+              </tr>
+            </tbody>
+          </nz-table>
+
+    </div>
+</div>

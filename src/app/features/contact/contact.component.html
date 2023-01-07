@@ -1,0 +1,106 @@
+<nav aria-label="breadcrumb ">
+  <ol
+    class="breadcrumb py-2 pe-2 justify-content-end text-light bg-primary"
+  >
+    <li class="breadcrumb-item user-select-none" routerLink="/home">Home</li>
+    <li class="breadcrumb-item user-select-none active" aria-current="page">Contact</li>
+  </ol>
+</nav>
+
+<div class="container my-5 contact" data-aos="fade-up">
+  <div class="row shadow p-2">
+    <div class="col-sm-12 col-md-4 col-lg-4 info">
+      <i class="fa-solid fa-location-dot"></i>
+      <h4>Location:</h4>
+      <p>
+        31/B, Green Park 4,<br />
+        Sadar Nagar 3,<br />
+        Near Mannat Hall, Bhagdawada,<br />
+        Valsad - 396001, Gujarat,<br />
+        India<br /><br />
+      </p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 info mt-2">
+      <i class="fa-solid fa-envelope"></i>
+      <h4>Email:</h4>
+      <p>cayasarpathan@gmail.com<br /></p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 info mt-2">
+      <i class="fa-solid fa-phone"></i>
+      <h4>Call:</h4>
+      <p>+91 96243 30295<br /></p>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-2 contact-form" data-aos="fade-up">
+  <form nz-form [formGroup]="contactForm" (ngSubmit)="submitContact()">
+    <div class="row justify-content-center">
+      <div class="col-lg- 6 col-md-6 col-sm-12 mb-2">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Name</nz-form-label>
+          <nz-form-control nzErrorTip=" input valid Name">
+            <input
+              nz-input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Email</nz-form-label>
+          <nz-form-control nzErrorTip=" input valid Email">
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="email"
+              placeholder="Your Email"
+              required
+            />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Subject</nz-form-label>
+          <nz-form-control nzErrorTip=" input valid Subject">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="subject"
+              id="subject"
+              placeholder="Subject"
+              required
+            />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Message</nz-form-label>
+          <nz-form-control nzErrorTip=" input valid Subject">
+            <textarea
+              class="form-control"
+              formControlName="message"
+              rows="5"
+              placeholder="Message"
+              required
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </div>
+    </div>
+  </form>
+</div>

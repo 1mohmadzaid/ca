@@ -1,0 +1,23 @@
+.carousel-item img {
+  width: 100vw;
+  height: 92vh;
+  object-fit: cover;
+}
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+.home-about ul li {
+  list-style: none;
+}
+
+.card {
+  cursor: pointer;
+  border: 0;
+  box-shadow: 0px 0px 12px -5px rgba(166, 166, 166, 1);
+}
+// .card :hover{
+//   box-shadow: 0px 0px 22px -5px rgba(166,166,166,1);
+// }

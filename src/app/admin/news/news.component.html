@@ -1,0 +1,25 @@
+<nz-table #sortTable [nzData]="newsList" nzTableLayout="fixed">
+    <thead>
+      <tr>
+        <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+          {{ column.title }}
+        </th>
+        <th nzWidth="80px">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of sortTable.data">
+        <td>{{ data.author }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.category }}</td>
+        <td>{{ data.date?.toDate() | date: 'medium' }}</td>
+        <td>{{ data.description | shorten:20 }}</td>
+        <td nz-popconfirm
+        nzPopconfirmTitle="Are you sure delete {{data.title}} news?"
+        nzPopconfirmPlacement="bottom"
+        (nzOnConfirm)="confirm(data)"
+        (nzOnCancel)="cancel()"><i class="fa-solid fa-trash ms-3" style="color: red; font-size: 1.3rem;"></i></td>
+      </tr>
+    </tbody>
+  </nz-table>
+

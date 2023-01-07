@@ -1,0 +1,18 @@
+.authordetails {
+  color: #aaaaaa;
+}
+input {
+  width: 40vw;
+}
+textarea {
+  width: 40vw;
+}
+
+@media screen and (max-width: 600px) {
+  input {
+    width: 80vw;
+  }
+  textarea {
+    width: 80vw;
+  }
+}

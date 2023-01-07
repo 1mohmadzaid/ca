@@ -1,0 +1,45 @@
+<nav aria-label="breadcrumb ">
+  <ol class="breadcrumb py-2 pe-2 justify-content-end text-light bg-primary">
+    <li class="breadcrumb-item user-select-none" routerLink="/home">Home</li>
+    <li class="breadcrumb-item user-select-none active" aria-current="page">
+      News
+    </li>
+  </ol>
+</nav>
+<nz-spin *ngIf="newsList.length == 0" [nzSize]="'large'"></nz-spin>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Post preview-->
+      <div
+        *ngFor="
+          let news of newsList
+            | paginate : { itemsPerPage: 20, currentPage: currPage }
+        "
+      >
+        <div class="post-preview" data-aos="fade-up">
+          <a routerLink="singlenews/{{ news.id }}">
+            <h2 class="post-title">
+              {{ news.title }}
+            </h2>
+            <h4
+              [innerHtml]="news.description | shorten : 55"
+              class="post-subtitle"
+            ></h4>
+          </a>
+          <p class="post-meta user-select-none">
+            Posted by
+            <span class="text-primary">{{ news.author }}</span>
+            on {{ news.date?.toDate() | date : "dd/MM/yyyy" }}
+          </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" data-aos="fade-up" />
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end" data-aos="fade-up">
+    <pagination-controls (pageChange)="currPage = $event"></pagination-controls>
+  </div>
+</div>

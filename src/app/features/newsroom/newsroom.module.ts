@@ -38,7 +38,7 @@ import { SingleNewsComponent } from './single-news/single-news.component';
     NzFormModule,
     NzIconModule,
     NzMessageModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
 })
 export class NewsroomModule {}

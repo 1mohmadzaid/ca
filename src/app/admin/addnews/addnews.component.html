@@ -28,13 +28,8 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" nzRequired nzFor="description">Description</nz-form-label>
-    <nz-form-control  nzErrorTip="The input is not valid Author Name">
-      <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-  <ngx-editor
-    [editor]="editor"
-    [placeholder]="'Type here...'"
-    formControlName="description"
-  ></ngx-editor>
+    <nz-form-control  nzErrorTip="The input is not valid Description">
+  <ckeditor [editor]="Editor" formControlName="description" data=""></ckeditor>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item nz-row class="register-area">

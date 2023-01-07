@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,7 @@ export class ApiService {
         localStorage.setItem('login_id', login_id);
         return true;
       } else {
-        return false;
+        return false; 
       }
     } catch {
       return false;
@@ -33,7 +34,10 @@ export class ApiService {
   }
 
   public getNews() {
-    return this.afs.collection('News').snapshotChanges();
+    return this.afs
+    .collection('News', (ref) => ref.orderBy('date', 'desc'))
+    .snapshotChanges();
+    // return this.afs.collection('News').snapshotChanges();
   }
 
   getNewsById(id: any) {
@@ -64,7 +68,7 @@ export class ApiService {
     return this.afs.collection('Comments').add(category);
   }
   public getComments() {
-    return this.afs.collection('Comments').snapshotChanges();
+    return this.afs.collection('Comments', (ref) => ref.orderBy('commentDate', 'asc')).snapshotChanges();
   }
 
   public deleteComment(comment: any) {

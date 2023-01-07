@@ -43,24 +43,24 @@
         [nzItemLayout]="'horizontal'"
         data-aos="fade-up"
       >
-        <ng-template #item let-item data-aos="fade-up">
+        <ng-template #item let-item>
           <nz-comment
             [nzAuthor]="item.name"
             nzDatetime="{{ item.commentDate.toDate() | date : 'medium' }}"
+            data-aos="fade-up"
             data-aos="fade-up"
           >
             <nz-avatar
               nz-comment-avatar
               nzIcon="user"
-              data-aos="fade-up"
             ></nz-avatar>
-            <nz-comment-content data-aos="fade-up">
+            <nz-comment-content>
               <p>{{ item.comment }}</p>
             </nz-comment-content>
           </nz-comment>
         </ng-template>
       </nz-list>
-      <nz-comment data-aos="fade-up">
+      <nz-comment>
         <nz-avatar
           nz-comment-avatar
           nzIcon="user"

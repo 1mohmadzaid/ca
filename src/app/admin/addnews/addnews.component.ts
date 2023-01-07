@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -6,18 +6,20 @@ import {
 } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
-import { Editor } from 'ngx-editor';
+
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
   selector: 'app-addnews',
+
   templateUrl: './addnews.component.html',
   styleUrls: ['./addnews.component.scss'],
 })
-export class AddnewsComponent implements OnInit, OnDestroy {
+export class AddnewsComponent implements OnInit {
   public addNews: UntypedFormGroup;
   public categoryList: any;
-  editor!: Editor;
+  public Editor = ClassicEditor;
 
   constructor(
     private apiService: ApiService,
@@ -29,23 +31,18 @@ export class AddnewsComponent implements OnInit, OnDestroy {
       author: ['CA. Yasar Pathan', [Validators.required]],
       title: ['', [Validators.required]],
       category: ['', [Validators.required]],
-      date: ['', [Validators.required]],
+      date: [new Date(), [Validators.required]],
       description: ['', [Validators.required]],
     });
   }
 
   ngOnInit() {
-    this.editor = new Editor();
     this.apiService.getCategory().subscribe((res) => {
       this.categoryList = res.map((e) => {
         const data = e.payload.doc.data();
-        // const id = e.payload.doc.id
         return data;
       });
     });
-  }
-  ngOnDestroy(): void {
-    this.editor.destroy();
   }
 
   public onSubmitNewsForm() {

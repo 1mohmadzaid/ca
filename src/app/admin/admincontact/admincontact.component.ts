@@ -5,7 +5,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
 @Component({
   selector: 'app-admincontact',
   templateUrl: './admincontact.component.html',
-  styleUrls: ['./admincontact.component.scss']
+  styleUrls: ['./admincontact.component.scss'],
 })
 export class AdmincontactComponent {
   public contactList!: any[];

@@ -5,7 +5,7 @@
       News
     </li>
     <li class="breadcrumb-item user-select-none active" aria-current="page">
-      Single
+      Detail
     </li>
   </ol>
 </nav>
@@ -20,7 +20,7 @@
           </h1>
 
           <hr class="my-4" data-aos="fade-up" />
-          <h6 [innerHtml]="description" class=""></h6>
+          <h6 [innerHtml]="description" class="news_description"></h6>
           <p class="post-meta user-select-none">
             <i class="fa-solid fa-user"></i>
             <span class="text-primary"> {{ author }} </span>
@@ -50,67 +50,72 @@
             data-aos="fade-up"
             data-aos="fade-up"
           >
-            <nz-avatar
-              nz-comment-avatar
-              nzIcon="user"
-            ></nz-avatar>
+            <nz-avatar nz-comment-avatar nzIcon="user"></nz-avatar>
             <nz-comment-content>
               <p>{{ item.comment }}</p>
             </nz-comment-content>
           </nz-comment>
         </ng-template>
       </nz-list>
-      <nz-comment>
-        <nz-avatar
-          nz-comment-avatar
-          nzIcon="user"
-          data-aos="fade-up"
-        ></nz-avatar>
-        <nz-comment-content data-aos="fade-up">
-          <form
-            nz-form
-            [formGroup]="validateComment"
-            (ngSubmit)="commentSubmit()"
-          >
-            <nz-form-item>
-              <nz-form-control nzErrorTip="Please input your Name!">
-                <nz-input-group nzPrefixIcon="user">
-                  <input formControlName="name" nz-input placeholder="Name" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-control nzErrorTip="Please input your Email!">
-                <nz-input-group nzPrefixIcon="mail">
-                  <input
-                    formControlName="email"
-                    nz-input
-                    placeholder="Email Address"
-                  />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <textarea
-                formControlName="comment"
-                nz-input
-                rows="4"
-                placeholder="write commet here"
-              ></textarea>
-            </nz-form-item>
-            <nz-form-item>
-              <button
-                nz-button
-                nzType="primary"
-                [nzLoading]="submitting"
-                [disabled]="!validateComment.valid"
+      <div class="row">
+        <div class="col-lg-8 col-sm-12">
+          <nz-comment>
+            <nz-avatar
+              nz-comment-avatar
+              nzIcon="user"
+              data-aos="fade-up"
+            ></nz-avatar>
+            <nz-comment-content data-aos="fade-up">
+              <form
+                nz-form
+                [formGroup]="validateComment"
+                (ngSubmit)="commentSubmit()"
               >
-                Comment
-              </button>
-            </nz-form-item>
-          </form>
-        </nz-comment-content>
-      </nz-comment>
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="Please input your Name!">
+                    <nz-input-group nzPrefixIcon="user">
+                      <input
+                        formControlName="name"
+                        nz-input
+                        placeholder="Name"
+                      />
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="Please input your Email!">
+                    <nz-input-group nzPrefixIcon="mail">
+                      <input
+                        formControlName="email"
+                        nz-input
+                        placeholder="Email Address"
+                      />
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <textarea
+                    formControlName="comment"
+                    nz-input
+                    rows="4"
+                    placeholder="write commet here"
+                  ></textarea>
+                </nz-form-item>
+                <nz-form-item>
+                  <button
+                    nz-button
+                    nzType="primary"
+                    [nzLoading]="submitting"
+                    [disabled]="!validateComment.valid"
+                  >
+                    Comment
+                  </button>
+                </nz-form-item>
+              </form>
+            </nz-comment-content>
+          </nz-comment>
+        </div>
+      </div>
     </div>
     <!-- <div class="col-sm-12 col-lg-3 shadow ">categories</div> -->
   </div>

@@ -13,14 +13,14 @@ a{
     color: #0085A1;
   }s
   .post-preview > a > .post-title {
-    overflow: hidden;
+    overflow-wrap: break-word;
     font-size: 1.875rem;
     margin-top: 1.875rem;
     margin-bottom: 0.625rem;
     font-weight: 700;
   }
   .post-preview > a > .post-subtitle {
-    overflow: hidden;
+    overflow-wrap: break-word;
     font-weight: 300;
     margin-bottom: 0.625rem;
   }

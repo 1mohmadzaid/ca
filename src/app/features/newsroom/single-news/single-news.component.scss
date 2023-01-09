@@ -1,18 +1,9 @@
 .authordetails {
   color: #aaaaaa;
 }
-input {
-  width: 40vw;
+.post-title {
+  overflow-wrap: break-word;
 }
-textarea {
-  width: 40vw;
-}
-
-@media screen and (max-width: 600px) {
-  input {
-    width: 80vw;
-  }
-  textarea {
-    width: 80vw;
-  }
+.news_description {
+  overflow-wrap: break-word;
 }

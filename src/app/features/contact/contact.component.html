@@ -48,7 +48,7 @@
       <div class="col-lg- 6 col-md-6 col-sm-12 mb-2">
         <nz-form-item>
           <nz-form-label nzRequired nzFor="name">Name</nz-form-label>
-          <nz-form-control nzErrorTip=" input valid Name">
+          <nz-form-control nzErrorTip="Please Input Valid Name">
             <input
               nz-input
               type="text"
@@ -64,7 +64,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
         <nz-form-item>
           <nz-form-label nzRequired nzFor="name">Email</nz-form-label>
-          <nz-form-control nzErrorTip=" input valid Email">
+          <nz-form-control nzErrorTip="Please Input Valid Email">
             <input
               type="email"
               class="form-control"
@@ -80,7 +80,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
         <nz-form-item>
           <nz-form-label nzRequired nzFor="name">Subject</nz-form-label>
-          <nz-form-control nzErrorTip=" input valid Subject">
+          <nz-form-control nzErrorTip="Please Input Valid Subject">
             <input
               type="text"
               class="form-control"
@@ -95,7 +95,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
         <nz-form-item>
           <nz-form-label nzRequired nzFor="name">Message</nz-form-label>
-          <nz-form-control nzErrorTip=" input valid Message">
+          <nz-form-control nzErrorTip="Please Invalid Valid Message">
             <textarea
               class="form-control"
               formControlName="message"
@@ -108,7 +108,13 @@
       </div>
 
       <div class="text-center">
-        <button class="btn btn-primary" type="submit">Send Message</button>
+        <button
+          [disabled]="contactForm.invalid"
+          class="btn btn-primary"
+          type="submit"
+        >
+          Send Message
+        </button>
       </div>
     </div>
   </form>

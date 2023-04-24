@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormGroup,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
@@ -12,7 +13,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-  public contactForm!: UntypedFormGroup;
+  public contactForm!: FormGroup;
 
   constructor(
     private fb: UntypedFormBuilder,

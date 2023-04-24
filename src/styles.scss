@@ -2,5 +2,21 @@
 @import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
 .container-fluid {
   background-color: #f7f7f7;
+}
 
+::-webkit-scrollbar-track {
+  border: 5px solid white;
+  // border color does not support transparent on scrollbar
+  // border-color: transparent;
+  background-color: #b2bec3;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #dfe6e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfe6e9;
+  border-radius: 10px;
 }

@@ -15,7 +15,7 @@ export class ApiService {
         localStorage.setItem('login_id', login_id);
         return true;
       } else {
-        return false; 
+        return false;
       }
     } catch {
       return false;
@@ -35,8 +35,8 @@ export class ApiService {
 
   public getNews() {
     return this.afs
-    .collection('News', (ref) => ref.orderBy('date', 'desc'))
-    .snapshotChanges();
+      .collection('News', (ref) => ref.orderBy('date', 'desc'))
+      .snapshotChanges();
     // return this.afs.collection('News').snapshotChanges();
   }
 
@@ -68,7 +68,9 @@ export class ApiService {
     return this.afs.collection('Comments').add(category);
   }
   public getComments() {
-    return this.afs.collection('Comments', (ref) => ref.orderBy('commentDate', 'asc')).snapshotChanges();
+    return this.afs
+      .collection('Comments', (ref) => ref.orderBy('commentDate', 'asc'))
+      .snapshotChanges();
   }
 
   public deleteComment(comment: any) {
@@ -86,5 +88,10 @@ export class ApiService {
 
   public deleteContact(contact: any) {
     return this.afs.doc('Contact/' + contact.id).delete();
+  }
+
+  //// zaid url
+  public getZaidUrl() {
+    return this.afs.collection('zaidUrl').snapshotChanges();
   }
 }
